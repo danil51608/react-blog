@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex: 9;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.imgContainer{
+    width: 100%;
+}
+
+.imgContainer > img{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.mainInfo{
+    text-align: left;
+}
+
+.description{
+    font-size: 18px;
+}
