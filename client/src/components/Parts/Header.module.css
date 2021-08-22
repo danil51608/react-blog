@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+}
+
+.names{
+    position: absolute;
+    margin: 20px 50%;
+    transform: translate(-50%, 0%)
+}
+
+.myName{
+    font-size: 15px;
+}
+
+.appName{
+    font-size: 75px;
+}
+
+.imgContainer{
+    width: 100%;
+    margin-top: 80px;
+}
+
+.imgContainer > img{
+    width: 100%;
+}

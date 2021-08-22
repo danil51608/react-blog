@@ -1,0 +1,20 @@
+.links-container{
+    display: flex;    
+}
+
+.links-container > li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+.links-container li:last-child{
+    margin-right: 0;
+}
+
+.icon-container{
+    width: 30px;
+}
+
+.icon-container > img {
+    width: 100%;
+}

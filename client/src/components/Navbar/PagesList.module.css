@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@200&display=swap');
+
+.list-body{
+    font-family: 'Urbanist', sans-serif;
+    font-size: 20px;
+    display: flex;
+    text-transform: capitalize;
+}
+
+.list-body > li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+.list-body li:last-child{
+    margin-right: 0;
+}

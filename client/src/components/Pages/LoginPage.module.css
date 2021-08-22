@@ -1,0 +1,26 @@
+.login-body{
+    height: calc(100vh - 86px);
+    display: flex;
+    width: 100%;
+    background: url('../../assets/imgs/space.jpg');
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    background: #fff;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.textField{ 
+    width: 300px;
+}
+
+.submitButton{
+    margin-top: 20px;
+}
