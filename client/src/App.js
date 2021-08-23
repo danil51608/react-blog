@@ -16,7 +16,6 @@ function App() {
         <Navbar />
 
         <Switch>
-          <div>
             <Route exact path="/">
               <Header />
               <div style={{display: 'flex'}}>
@@ -31,7 +30,7 @@ function App() {
                 <SideBar />
               </div>
             </Route>
-          </div>
+
 
           <Route path="/posts">
             <PostDetail />
