@@ -10,7 +10,7 @@ const PagesList = props => {
             <li>ABOUT</li>
             <li>CONTACT</li>
             <li>WRITE</li>
-            <li>LOGOUT</li>
+            {/* <li>LOGOUT</li> */}
         </ul>
     )
 }

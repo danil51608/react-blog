@@ -24,3 +24,8 @@
 .submitButton{
     margin-top: 20px;
 }
+
+.submitButton:disabled{
+    cursor: not-allowed;
+    background: #ccc;
+}
