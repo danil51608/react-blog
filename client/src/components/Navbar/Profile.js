@@ -32,7 +32,7 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
-      backgroundColor: '#ccc',
+      backgroundColor: '#A7A7AE',
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
         color: theme.palette.common.white,
       },
@@ -72,7 +72,7 @@ const Profile = (props) => {
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
-          color="#ccc"
+          classes={{root: classes.menuButton}}
           onClick={handleClick}
           ref={divRef}
         >
@@ -86,10 +86,10 @@ const Profile = (props) => {
           onClose={handleClose}
         >
           <StyledMenuItem>
-            <ListItemText primary="Sent mail" />
+            <ListItemText primary="Settings" />
           </StyledMenuItem>
           <StyledMenuItem>
-            <ListItemText primary="Drafts" />
+            <ListItemText primary="Logout" />
           </StyledMenuItem>
         </StyledMenu>
       </div>
