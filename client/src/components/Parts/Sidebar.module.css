@@ -1,4 +1,24 @@
 .container{
     flex: 3;
-    background: yellow;
+}
+
+.imgContainer{
+    width: 100%;
+}
+
+.imgContainer > img{
+    width: 100%;
+}
+
+.categoryList{
+    list-style: none;
+}
+
+.categoryList > li{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.categoryList > li:last-child{
+    margin: 0;
 }

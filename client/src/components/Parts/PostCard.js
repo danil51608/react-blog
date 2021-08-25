@@ -11,11 +11,11 @@ import {
 } from "@material-ui/core";
 import RelaxImg from "../../assets/imgs/relax.jpg";
 
-// import classes from './PostCard.module.css'
-
+//material ui styles 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    minWidth: 300,
     marginRight: 10,
     marginTop: 20,
   },
@@ -24,21 +24,25 @@ const useStyles = makeStyles({
   },
 });
 
-const PostCard = (props) => {
+const PostCard = ({post}) => {
+  //CONSTS AND STATES
   let history = useHistory();
   const classes = useStyles();
-  const { title, description, id } = props;
-
+  const { title, description, _id:id, photo } = post;
+  const storagePath = 'http://localhost:5000/images/'
+  const image = photo ? `${storagePath}${photo}` : RelaxImg
+  
+  //FUNCTIONS
   function handleClick() {
-    history.push(`/posts`);
+    history.push(`/posts/${id}`);
   }
 
   return (
-    <Card className={classes.root} >
+    <Card className={classes.root}>
       <CardActionArea onClick={handleClick}>
         <CardMedia
           className={classes.media}
-          image={RelaxImg}
+          image={image}
           title="Contemplative Reptile"
         />
         <CardContent>

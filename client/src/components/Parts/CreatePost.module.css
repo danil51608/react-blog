@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex: 9;
+  flex-direction: column;
+  padding: 10px;
+}
+
+form {
+  padding: 20px;
+}
+
+.textField {
+  padding: 100px;
+}
+
+.imgContainer {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.imgContainer > img {
+    width: 100%;
+}
+
+.uploadIcon{
+    color: #1539db;
+    font-size: 24px;
+}
+
+.uploadIcon:hover{
+    cursor: pointer;
+    color: #43adce;
+}

@@ -1,5 +1,6 @@
 import profileImg from "../../assets/imgs/profile.jpeg";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
+import {Context} from '../../context/Context'
 import {
   Menu,
   MenuItem,
@@ -41,6 +42,7 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 const Profile = (props) => {
+  const {dispatch} = useContext(Context)
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
 
@@ -50,6 +52,18 @@ const Profile = (props) => {
   }
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  const createPost = () => {
+    window.location.replace('/create')
+  }
+
+  const settingsClick = () => {
+    window.location.replace('/settings')
+  }
+
+  const handleLogout = () => {
+    dispatch({ type: 'LOGOUT'})
   }
 
   useEffect(() => {
@@ -64,6 +78,9 @@ const Profile = (props) => {
 
   return (
     <div className={classes.container}>
+      <Button onClick={createPost}>
+        Create +
+      </Button>
       <div className={classes["img-container"]}>
         <img src={profileImg} alt="profile" />
       </div>
@@ -85,10 +102,10 @@ const Profile = (props) => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <StyledMenuItem>
+          <StyledMenuItem onClick={settingsClick}>
             <ListItemText primary="Settings" />
           </StyledMenuItem>
-          <StyledMenuItem>
+          <StyledMenuItem onClick={handleLogout}>
             <ListItemText primary="Logout" />
           </StyledMenuItem>
         </StyledMenu>

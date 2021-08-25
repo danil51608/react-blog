@@ -41,7 +41,7 @@ const RegisterPage = (props) => {
           margin="normal"
           label="Email"
           variant="outlined"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           classes={{ root: classes.textField }}
@@ -49,7 +49,7 @@ const RegisterPage = (props) => {
           label="Password"
           margin="normal"
           variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Button
           type="submit"

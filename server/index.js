@@ -6,15 +6,18 @@ const userRouter = require('./routes/users')
 const postRouter = require('./routes/posts')
 const categoryRouter = require('./routes/categories')
 const cors = require('cors')
+const path = require('path')
 const multer = require('multer')
 
 
 const app = express();
 app.use(cors());
 
+//setting a port
 const PORT = process.env.PORT || 5000;
 dotenv.config()
 app.use(express.json());
+app.use('/images', express.static(path.join(__dirname, '/images')))
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -39,6 +42,7 @@ app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/post', postRouter)
 app.use('/category', categoryRouter)
+
 
 
 app.listen(PORT, ()=> {

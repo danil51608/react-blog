@@ -7,6 +7,8 @@
 
 .imgContainer{
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .imgContainer > img{
@@ -21,4 +23,25 @@
 
 .description{
     font-size: 18px;
+}
+
+.icons:hover{
+    cursor: pointer;
+}
+
+.icons:first-child{
+    color: #507ac7;
+    margin-right: 10px;
+}
+
+.icons:first-child:hover{
+    color: #000;
+}
+
+.icons:last-child{
+    color: #c75050;
+}
+
+.icons:last-child:hover{
+    color: #000;
 }
