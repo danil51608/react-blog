@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+}
+
+.imgContainer{
+    width: 100%;
+}
+
+.imgContainer > img{
+    width: 100%;
+}
+
+/* button {
+    max-width: 25%;
+} */

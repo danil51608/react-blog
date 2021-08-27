@@ -1,7 +1,12 @@
 .container{
     display: flex;
-    flex: 9;
+    flex: 8;
+    height: 0px;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 20px;
+}
+
+.container:last-child{
+    margin-left: auto;
 }

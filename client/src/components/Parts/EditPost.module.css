@@ -1,0 +1,16 @@
+.container{
+    padding: 20px;
+}
+
+
+.imgContainer{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.imgContainer > img{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}

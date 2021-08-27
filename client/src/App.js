@@ -7,15 +7,15 @@ import RegisterPage from "./components/Pages/RegisterPage";
 import PostDetail from "./components/Parts/PostDetail";
 import SideBar from "./components/Parts/SideBar";
 import UserSettings from "./components/Parts/UserSettings";
+import AboutPage from "./components/Pages/AboutPage";
 
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <div className="App">
-        <Navbar />
-
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -47,6 +47,10 @@ function App() {
             <div style={{ display: "flex" }}>
               <UserSettings />
             </div>
+          </Route>
+
+          <Route path="/aboutme">
+            <AboutPage />
           </Route>
         </Switch>
       </div>

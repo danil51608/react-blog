@@ -1,16 +1,17 @@
 .container {
   display: flex;
   flex: 9;
-  flex-direction: column;
+  justify-content: center;
   padding: 10px;
+  height: 100%;
 }
 
 form {
   padding: 20px;
-}
-
-.textField {
-  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px; 
 }
 
 .imgContainer {
@@ -30,4 +31,8 @@ form {
 .uploadIcon:hover{
     cursor: pointer;
     color: #43adce;
+}
+
+button{
+  margin: 0 auto;
 }

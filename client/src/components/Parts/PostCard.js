@@ -7,7 +7,7 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button,
+  Button
 } from "@material-ui/core";
 import RelaxImg from "../../assets/imgs/relax.jpg";
 
@@ -26,9 +26,9 @@ const useStyles = makeStyles({
 
 const PostCard = ({post}) => {
   //CONSTS AND STATES
-  let history = useHistory();
   const classes = useStyles();
-  const { title, description, _id:id, photo } = post;
+  let history = useHistory();
+  const { title, desc, _id:id, photo } = post;
   const storagePath = 'http://localhost:5000/images/'
   const image = photo ? `${storagePath}${photo}` : RelaxImg
   
@@ -50,7 +50,7 @@ const PostCard = ({post}) => {
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {description}
+            {desc.substring(0, 100)}...
           </Typography>
         </CardContent>
       </CardActionArea>

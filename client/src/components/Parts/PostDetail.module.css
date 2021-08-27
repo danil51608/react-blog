@@ -1,8 +1,13 @@
+.wrapper{
+    display: flex;
+    flex: 8;
+    justify-content: center;
+}
+
 .container{
     display: flex;
-    flex: 9;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
 }
 
 .imgContainer{

@@ -1,5 +1,6 @@
-import profileImg from "../../assets/imgs/profile.jpeg";
+import defaultImage from "../../assets/imgs/robo.jpg";
 import { useRef, useState, useEffect, useContext } from "react";
+import {useHistory} from "react-router-dom";
 import {Context} from '../../context/Context'
 import {
   Menu,
@@ -41,10 +42,13 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-const Profile = (props) => {
-  const {dispatch} = useContext(Context)
+const Profile = () => {
+  let history = useHistory()
+  const {dispatch, user} = useContext(Context)
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
+
+  const imgPath = user.profilePic ? `http://localhost:5000/images/${user.profilePic}` : defaultImage
 
   function handleClick(e) {
     e.stopPropagation();
@@ -54,16 +58,13 @@ const Profile = (props) => {
     setAnchorEl(null);
   }
 
-  const createPost = () => {
-    window.location.replace('/create')
-  }
-
   const settingsClick = () => {
-    window.location.replace('/settings')
+    history.push('/settings')
   }
 
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT'})
+    history.push('/')
   }
 
   useEffect(() => {
@@ -78,11 +79,9 @@ const Profile = (props) => {
 
   return (
     <div className={classes.container}>
-      <Button onClick={createPost}>
-        Create +
-      </Button>
+      <span className={classes.username}>{user.username}</span>
       <div className={classes["img-container"]}>
-        <img src={profileImg} alt="profile" />
+        <img src={imgPath} alt="profile" />
       </div>
       <div>
         <Button

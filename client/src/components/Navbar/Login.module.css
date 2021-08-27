@@ -1,4 +1,7 @@
 
 .login{
     font-family: 'Urbanist';
+    display: flex;
+    flex: 2;
+    justify-content: flex-end;
 }

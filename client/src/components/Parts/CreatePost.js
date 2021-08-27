@@ -1,12 +1,13 @@
 import classes from "./CreatePost.module.css";
 import { useState, useContext } from "react";
+import {useHistory} from 'react-router-dom'
 import { Context } from "../../context/Context";
 import axios from "axios";
-import { Paper, TextField, Button, Container } from "@material-ui/core";
+import { Paper, TextField, Button } from "@material-ui/core";
 
 const CreatePost = () => {
   // CONSTS AND STATES
-
+  let history = useHistory()
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [cat, setCat] = useState("");
@@ -25,7 +26,8 @@ const CreatePost = () => {
       title,
       desc,
       categories: cat,
-      username: user.username,
+      userId: user._id,
+      username: user.username
     };
 
     //check if file has been uploaded
@@ -45,7 +47,7 @@ const CreatePost = () => {
     //upload post
     try {
       await axios.post("/post", newPost);
-      window.location.replace("/"); //redirect to homepage
+      history.push("/"); //redirect to homepage
     } catch(e) {
       setError(true); //show error
     }
@@ -79,24 +81,23 @@ const CreatePost = () => {
           />
           <TextField
             id="outlined-multiline-static"
-            label="Multiline"
+            label="Description"
             multiline
             value={desc}
             minRows={20}
             rows={4}
             margin="normal"
             variant="outlined"
-            onChange={(e) => setDesc(e.target.value)}
             fullWidth
+            onChange={(e) => setDesc(e.target.value)}
           />
-          <TextField
+          {/* <TextField
             id="standard-basic"
             label="Category"
             value={cat}
             margin="normal"
             onChange={(e) => setCat(e.target.value)}
-            fullWidth
-          />
+          /> */}
 
           <Button
             variant="contained"

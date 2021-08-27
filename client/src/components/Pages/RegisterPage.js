@@ -1,9 +1,11 @@
 import { useState } from "react";
+import {useHistory} from "react-router-dom"
 import { TextField, Button } from "@material-ui/core";
 import classes from "./LoginPage.module.css";
 import axios from "axios";
 
 const RegisterPage = (props) => {
+  let history = useHistory()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -18,7 +20,7 @@ const RegisterPage = (props) => {
         password,
         email,
       });
-      res.data && window.location.replace("/login");
+      res.data && history.push("/login");
     } catch (e) {
       setError(true);
     }
@@ -27,6 +29,7 @@ const RegisterPage = (props) => {
   return (
     <div className={classes["login-body"]}>
       <form className={classes["login-form"]} onSubmit={(e) => handleSubmit(e)}>
+        <h1>Registration</h1>
         <TextField
           classes={{ root: classes.textField }}
           id="outlined-basic"

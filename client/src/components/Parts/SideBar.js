@@ -1,6 +1,6 @@
 import classes from "./Sidebar.module.css";
 import { useEffect, useState } from "react";
-import sideBarImg from "../../assets/imgs/freedom.jpg";
+import sideBarImg from "../../assets/imgs/bitard.jpeg";
 import axios from "axios";
 
 const Sidebar = (props) => {
@@ -11,7 +11,7 @@ const Sidebar = (props) => {
       setCategories(res.data);
     };
     fetchCategories();
-    console.log(categories);
+    
   }, []);
 
   return (
@@ -20,7 +20,12 @@ const Sidebar = (props) => {
         <img src={sideBarImg} alt="sidebar" />
       </div>
       <h1>About me</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adip</p>
+      <p>
+        Hi!:{")"} My name is Danya and I'm glad you've visited my blog. This
+        blog was written by me using React, Node.JS and CSS. Try to log in and
+        write a post {";)."} Don't worry about your password. Your password will
+        be securely hashed.
+      </p>
       <h1>Categories</h1>
       <ul className={classes.categoryList}>
         {categories.map((category) => (

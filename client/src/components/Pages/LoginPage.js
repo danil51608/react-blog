@@ -1,10 +1,12 @@
 import { useContext, useRef } from "react";
+import {useHistory} from 'react-router-dom'
 import { Context } from "../../context/Context";
 import { TextField, Button } from "@material-ui/core";
 import classes from "./LoginPage.module.css";
 import axios from "axios";
 
-const LoginPage = (props) => {
+const LoginPage = () => {
+  let history = useHistory()
   const { user, isFetching, dispatch, error } = useContext(Context);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -18,7 +20,7 @@ const LoginPage = (props) => {
         password: passwordRef.current.value
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      window.location.replace('/')
+      history.push('/')
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
@@ -27,6 +29,7 @@ const LoginPage = (props) => {
   return (
     <div className={classes["login-body"]}>
       <form className={classes["login-form"]} onSubmit={(e) => handleSubmit(e)}>
+        <h1>Login</h1>
         <TextField
           classes={{ root: classes.textField }}
           id="outlined-basic"
