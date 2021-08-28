@@ -2,7 +2,6 @@
     height: calc(100vh - 86px);
     display: flex;
     width: 100%;
-    background: url('../../assets/imgs/space.jpg');
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -28,4 +27,10 @@
 .submitButton:disabled{
     cursor: not-allowed;
     background: #ccc;
+}
+
+@media (max-width: 424px){
+    .login-form{
+        padding: 10px;
+    }
 }

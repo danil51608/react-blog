@@ -35,7 +35,7 @@ const LoginPage = () => {
           id="outlined-basic"
           margin="normal"
           label="username"
-          variant="outlined"
+          // variant="outlined"
           inputProps={{ ref: usernameRef }}
         />
         <TextField
@@ -43,7 +43,7 @@ const LoginPage = () => {
           id="outlined-basic"
           label="Password"
           margin="normal"
-          variant="outlined"
+          // variant="outlined"
           inputProps={{ ref: passwordRef }}
         />
         <Button

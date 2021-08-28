@@ -2,13 +2,18 @@
     display: flex;
     flex-direction: column;
     font-family: 'Raleway', sans-serif;
-    position: relative;
+    background: url(../../assets//imgs/black_marbel.jpg);
+    background-size: cover;
+    color: #fff;
+    min-height: 300px;
+    justify-content: center;
 }
 
 .names{
-    position: absolute;
-    margin: 20px 50%;
-    transform: translate(-50%, 0%)
+
+    /* position: absolute; */
+    /* margin: 20px 50%;
+    transform: translate(-50%, 0%) */
 }
 
 .myName{
@@ -19,11 +24,9 @@
     font-size: 75px;
 }
 
-.imgContainer{
-    width: 100%;
-    margin-top: 80px;
-}
-
-.imgContainer > img{
-    width: 100%;
+@media (max-width: 440px){
+    .appName{
+        font-size: 50px;
+        z-index: 100;
+    }
 }

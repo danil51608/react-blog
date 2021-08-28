@@ -65,10 +65,13 @@ const UserSettings = () => {
 
   return (
     <div className={classes.container}>
-      <Paper elevation={3}>
+      <Paper elevation={3} classes={{ root: classes.paper }}>
         <form onSubmit={handleSubmit} className={classes.form}>
-          <div className={classes.imgContainer}><img src={file ? URL.createObjectURL(file) : null} /></div>
-          <input type='file' onChange={e=> setFile(e.target.files[0])}/>
+          <div className={classes.imgContainer}><img src={file ? URL.createObjectURL(file) : `http://localhost:5000/images/${user.profilePic}`} /></div>
+          <label htmlFor="upload" className={classes.uploadIcon}>
+            <i className="fas fa-plus"></i>
+          </label>
+          <input type='file' id='upload' onChange={e=> setFile(e.target.files[0])}/>
           <TextField
             id="standard-basic"
             label="Username"

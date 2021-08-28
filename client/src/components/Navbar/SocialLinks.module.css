@@ -1,11 +1,18 @@
 .links-container{
-    display: flex;   
-    flex: 1; 
+    display: flex;  
+    padding: 0;
+    width: 100%;
+    justify-content: flex-end;
+    margin: auto;
+}
+
+.links-container a{
+    margin: 0;
 }
 
 .links-container > li {
     list-style: none;
-    margin-right: 10px;
+    margin-right: 10px;    
 }
 
 .links-container li:last-child{
@@ -18,4 +25,11 @@
 
 .icon-container > img {
     width: 100%;
+}
+
+@media (max-width: 991px) {
+    .links-container{
+        margin-top: 2vh;
+        justify-content: center;
+    }
 }

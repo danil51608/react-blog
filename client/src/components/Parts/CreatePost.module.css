@@ -6,12 +6,19 @@
   height: 100%;
 }
 
-form {
+/* .form {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 500px; 
+} */
+
+.form{
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  padding: 20px;
 }
 
 .imgContainer {
@@ -35,4 +42,16 @@ form {
 
 button{
   margin: 0 auto;
+}
+
+
+@media (max-width: 550px){
+  .container{
+    width: 100%;
+  }
+
+  .form{
+      display: block;
+      min-width: 50px;
+  }
 }

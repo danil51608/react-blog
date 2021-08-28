@@ -10,6 +10,7 @@ import {
   Button
 } from "@material-ui/core";
 import RelaxImg from "../../assets/imgs/relax.jpg";
+import styles from './PostCard.module.css'
 
 //material ui styles 
 const useStyles = makeStyles({
@@ -38,23 +39,23 @@ const PostCard = ({post}) => {
   }
 
   return (
-    <Card className={classes.root}>
+    <Card className={`${classes.root} ${styles.postCard}`}>
       <CardActionArea onClick={handleClick}>
         <CardMedia
-          className={classes.media}
+          className={`${classes.media} ${styles.postMedia}`}
           image={image}
           title="Contemplative Reptile"
         />
-        <CardContent>
+        <CardContent className={styles.info}>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {desc.substring(0, 100)}...
+            {desc}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={styles.postActions}>
         <Button size="small" color="primary">
           Share
         </Button>

@@ -13,9 +13,6 @@
     text-align: left;
 }
 
-
-
-
 .imgContainer{
     width: 30%;
     float: left;
@@ -24,4 +21,11 @@
 
 .imgContainer > img{
     width: 100%;
+}
+
+@media (max-width: 690px){
+    .imgContainer{
+        float: none;
+        width: 100%;
+    }
 }

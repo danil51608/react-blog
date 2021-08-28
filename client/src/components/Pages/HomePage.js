@@ -5,6 +5,9 @@ import Header from '../Parts/Header'
 import Posts from '../Parts/Posts'
 import SideBar from '../Parts/SideBar'
 
+//STYLES
+import classes from './HomePage.module.css'
+
 const HomePage = props => {
     const [posts, setPosts] = useState([])
 
@@ -18,7 +21,7 @@ const HomePage = props => {
     return(
         <>
             <Header />
-            <div style={{display: 'flex'}}>
+            <div className={classes.container}>
               <Posts posts={posts}/>
               <SideBar />
             </div>

@@ -1,3 +1,37 @@
-button{
-    width: 100%;
+
+@media (max-width: 666px){
+    .postCard{
+        flex: 1;
+        height: auto;
+        max-width: 100% !important;
+    }
+
+    .postMedia{
+        height: 25vh;
+    }
+
+    .info{
+        text-overflow: ellipsis;   
+    }
+
+    .info h2{
+        font-size: 30px;
+        text-align: left;
+    }
+
+    .info p{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .postActions button{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 450px){
+    .postCard{
+        margin: 2px 0;
+        min-width: 180px;
+    }
 }

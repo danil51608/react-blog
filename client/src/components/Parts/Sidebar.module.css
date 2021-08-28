@@ -32,3 +32,18 @@
 .categoryList > li:last-child{
     margin: 0;
 }
+
+/* BREAK POINTS */
+
+@media (max-width: 1400px){
+    .container{
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 450px){
+    .container{
+        width: 100%;
+    }
+}

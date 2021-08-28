@@ -35,7 +35,7 @@ const RegisterPage = (props) => {
           id="outlined-basic"
           margin="normal"
           label="Username"
-          variant="outlined"
+          // variant="outlined"
           onChange={(e) => setUsername(e.target.value)}
         />
         <TextField
@@ -43,7 +43,7 @@ const RegisterPage = (props) => {
           id="outlined-basic"
           margin="normal"
           label="Email"
-          variant="outlined"
+          // variant="outlined"
           onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
@@ -51,7 +51,7 @@ const RegisterPage = (props) => {
           id="outlined-basic"
           label="Password"
           margin="normal"
-          variant="outlined"
+          // variant="outlined"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button

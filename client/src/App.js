@@ -1,6 +1,6 @@
 import CreatePost from "./components/Parts/CreatePost";
 import HomePage from "./components/Pages/HomePage";
-import Navbar from "./components/Navbar/Navbar";
+import AppNavbar from "./components/Navbar/AppNavbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./components/Pages/LoginPage";
 import RegisterPage from "./components/Pages/RegisterPage";
@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Navbar />
+      <AppNavbar />
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -22,7 +22,7 @@ function App() {
           </Route>
 
           <Route path="/posts">
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", flexDirection:"column" }}>
               <PostDetail />
               <SideBar />
             </div>
@@ -37,7 +37,7 @@ function App() {
           </Route>
 
           <Route path="/create">
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", flexDirection:"column" }}>
               <CreatePost />
               <SideBar />
             </div>

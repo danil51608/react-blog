@@ -10,3 +10,20 @@
 .container:last-child{
     margin-left: auto;
 }
+
+
+
+@media (max-width: 666px){
+    .container{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 450px){
+    .container{
+        padding: 5px;
+        justify-content: flex-start;
+    }
+}
+
+

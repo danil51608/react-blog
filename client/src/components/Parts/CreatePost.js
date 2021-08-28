@@ -56,7 +56,7 @@ const CreatePost = () => {
   return (
     <div className={classes.container}>
       <Paper elevation={3} classes={{ root: classes.paper }}>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
           {file && (
             <div className={classes.imgContainer}>
               <img src={URL.createObjectURL(file)} />
@@ -87,7 +87,6 @@ const CreatePost = () => {
             minRows={20}
             rows={4}
             margin="normal"
-            variant="outlined"
             fullWidth
             onChange={(e) => setDesc(e.target.value)}
           />

@@ -51,7 +51,6 @@ const EditPost = (props) => {
           minRows={20}
           rows={4}
           margin="normal"
-          variant="outlined"
           onChange={(e) => setDesc(e.target.value)}
           fullWidth
         />
