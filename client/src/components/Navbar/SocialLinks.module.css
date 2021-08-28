@@ -4,11 +4,18 @@
     width: 100%;
     justify-content: flex-end;
     margin: auto;
+    font-size: 40px;
+}
+
+.links-container i:hover{
+    cursor: pointer;
+    color: #14aad8;
 }
 
 .links-container a{
     margin: 0;
 }
+
 
 .links-container > li {
     list-style: none;
@@ -19,13 +26,6 @@
     margin-right: 0;
 }
 
-.icon-container{
-    width: 30px;
-}
-
-.icon-container > img {
-    width: 100%;
-}
 
 @media (max-width: 991px) {
     .links-container{

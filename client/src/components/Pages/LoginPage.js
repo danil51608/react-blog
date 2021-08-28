@@ -1,13 +1,20 @@
-import { useContext, useRef } from "react";
-import {useHistory} from 'react-router-dom'
+import { useContext, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Context } from "../../context/Context";
-import { TextField, Button } from "@material-ui/core";
+import {
+  TextField,
+  Button,
+  Backdrop,
+  CircularProgress,
+} from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import classes from "./LoginPage.module.css";
 import axios from "axios";
 
 const LoginPage = () => {
-  let history = useHistory()
-  const { user, isFetching, dispatch, error } = useContext(Context);
+  let history = useHistory();
+  const [error, setError] = useState("");
+  const { user, isFetching, dispatch } = useContext(Context);
   const usernameRef = useRef();
   const passwordRef = useRef();
 
@@ -17,15 +24,18 @@ const LoginPage = () => {
     try {
       const res = await axios.post("/auth/login", {
         username: usernameRef.current.value,
-        password: passwordRef.current.value
+        password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      history.push('/')
+      history.push("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
+      if (err.response.data.customMessage) {
+        setError(err.response.data.customMessage);
+      }
     }
   };
-  console.log(user);
+
   return (
     <div className={classes["login-body"]}>
       <form className={classes["login-form"]} onSubmit={(e) => handleSubmit(e)}>
@@ -44,6 +54,7 @@ const LoginPage = () => {
           label="Password"
           margin="normal"
           // variant="outlined"
+          type="password"
           inputProps={{ ref: passwordRef }}
         />
         <Button
@@ -55,9 +66,15 @@ const LoginPage = () => {
         >
           Login
         </Button>
-        {isFetching && <span>Loading ...</span>}
-        {error && <span>Something went wrong!</span>}
+        {error && (
+          <Alert severity="error">
+            <strong>{error}</strong>
+          </Alert>
+        )}
       </form>
+        <Backdrop open={isFetching} className={classes.backdrop}>
+          <CircularProgress />
+        </Backdrop>
     </div>
   );
 };

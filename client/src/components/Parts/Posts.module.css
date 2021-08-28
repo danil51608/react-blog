@@ -1,14 +1,20 @@
 .container{
     display: flex;
     flex: 8;
-    height: 0px;
+    /* height: 0px; */
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
+    position: relative;
 }
 
 .container:last-child{
     margin-left: auto;
+}
+
+.backdrop{
+    position: absolute;
+    z-index: 99 !important;
 }
 
 

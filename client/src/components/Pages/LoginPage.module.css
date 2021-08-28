@@ -5,6 +5,7 @@
     background-size: cover;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .login-form{
@@ -18,6 +19,10 @@
 
 .textField{ 
     width: 300px;
+}
+
+.backdrop{
+    z-index: 99 !important;
 }
 
 .submitButton{

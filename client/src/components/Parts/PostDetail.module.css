@@ -2,6 +2,7 @@
     display: flex;
     flex: 8;
     justify-content: center;
+    padding: 20px;
 }
 
 .container{
@@ -50,5 +51,3 @@
 .icons:last-child:hover{
     color: #000;
 }
-
-@media (max-width: )

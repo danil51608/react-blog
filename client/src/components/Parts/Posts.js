@@ -1,15 +1,22 @@
 import classes from "./Posts.module.css";
 import PostCard from "./PostCard";
-import {useEffect} from "react"
+import { Backdrop, CircularProgress } from "@material-ui/core";
+import { useEffect, useContext } from "react";
+import { Context } from "../../context/Context";
 
 const Posts = (props) => {
-  const {posts} = props;
-
-  useEffect(() => {}, [posts])
+  const { posts } = props;
+  const { isFetching } = useContext(Context);
+  useEffect(() => {}, [posts]);
 
   return (
     <div className={classes.container}>
-      {posts.map(post => <PostCard post={post} key={post._id}/>)}
+      {posts.map((post) => (
+        <PostCard post={post} key={post._id} />
+      ))}
+      <Backdrop open={isFetching} className={classes.backdrop}>
+        <CircularProgress />
+      </Backdrop>
     </div>
   );
 };

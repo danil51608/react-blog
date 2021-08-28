@@ -1,19 +1,22 @@
 import { useState } from "react";
-import {useHistory} from "react-router-dom"
-import { TextField, Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { TextField, Button, Backdrop, CircularProgress } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import classes from "./LoginPage.module.css";
 import axios from "axios";
 
 const RegisterPage = (props) => {
-  let history = useHistory()
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isFetching, setIsFetching] = useState(false)
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(false)
+    setError(false);
+    setIsFetching(true)
     try {
       const res = await axios.post("/auth/register", {
         username,
@@ -21,8 +24,12 @@ const RegisterPage = (props) => {
         email,
       });
       res.data && history.push("/login");
-    } catch (e) {
-      setError(true);
+      setIsFetching(false)
+    } catch (error) {
+      setIsFetching(false)
+      if (error.response.data.customMessage) {
+        setError(error.response.data.customMessage);
+      }
     }
   };
 
@@ -51,6 +58,7 @@ const RegisterPage = (props) => {
           id="outlined-basic"
           label="Password"
           margin="normal"
+          type="password"
           // variant="outlined"
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -62,8 +70,15 @@ const RegisterPage = (props) => {
         >
           Sign in
         </Button>
-        {error && <span>Something went wrong</span>}
+        {error && (
+          <Alert severity="error">
+            <strong>{error}</strong>
+          </Alert>
+        )}
       </form>
+      <Backdrop open={isFetching} className={classes.backdrop}>
+          <CircularProgress />
+        </Backdrop>
     </div>
   );
 };

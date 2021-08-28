@@ -22,10 +22,7 @@ function App() {
           </Route>
 
           <Route path="/posts">
-            <div style={{ display: "flex", flexDirection:"column" }}>
               <PostDetail />
-              <SideBar />
-            </div>
           </Route>
 
           <Route path="/login">
@@ -39,7 +36,6 @@ function App() {
           <Route path="/create">
             <div style={{ display: "flex", flexDirection:"column" }}>
               <CreatePost />
-              <SideBar />
             </div>
           </Route>
 

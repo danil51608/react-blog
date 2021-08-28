@@ -26,12 +26,12 @@ const Sidebar = (props) => {
         write a post {";)."} Don't worry about your password. Your password will
         be securely hashed.
       </p>
-      <h1>Categories</h1>
-      <ul className={classes.categoryList}>
+      {/* <h1>Categories</h1> */}
+      {/* <ul className={classes.categoryList}>
         {categories.map((category) => (
           <li>{category.name}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
