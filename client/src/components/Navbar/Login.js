@@ -1,15 +1,21 @@
+//IMPORT MODULES
 import { useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+//IMPORT UI COMPONENTS
 import {
   Menu,
   MenuItem,
   Button,
   withStyles,
   ListItemText,
-  ClickAwayListener
+  ClickAwayListener,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 
+//IMPORT STYLES
 import classes from "./Login.module.css";
+
+//MENU STYLING
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -30,10 +36,11 @@ const StyledMenu = withStyles({
   />
 ));
 
+//StyledMenuItem STYLING
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
-      backgroundColor: '#A7A7AE',
+      backgroundColor: "#A7A7AE",
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
         color: theme.palette.common.white,
       },
@@ -42,29 +49,29 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 const Login = () => {
+  //states
   const [anchorEl, setAnchorEl] = useState(null);
-  const [buttonName, setButtonName] = useState('Login');
-  let history = useHistory()
-  const divRef = useRef();
+  const [buttonName, setButtonName] = useState("Login"); //change button name on toggle
+
+  const butRef = useRef(); //used to set menu anchor
+  let history = useHistory(); //used to navigate through Router
 
   function handleClick() {
-    setAnchorEl(divRef.current);
+    setAnchorEl(butRef.current); //open menu
   }
-  function handleClose(buttonName) {
-    setAnchorEl(null);
+  function handleClose() {
+    setAnchorEl(null); //close menu
   }
 
   const loginClick = () => {
-    handleClose('Login')
-    setButtonName('Login')
-    history.push('/login')
-  }
+    setButtonName("Login");
+    history.push("/login"); //redirect to login page
+  };
 
   const registerClick = () => {
-    handleClose('Register')
-    setButtonName('Sign in')
-    history.push('/register')
-  }
+    setButtonName("Sign in");
+    history.push("/register"); //redirect to register page
+  };
 
   return (
     <div className={classes.login}>
@@ -73,9 +80,9 @@ const Login = () => {
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
-          classes={{root: classes.menuButton}}
+          classes={{ root: classes.menuButton }}
           onClick={handleClick}
-          ref={divRef}
+          ref={butRef}
         >
           {buttonName}
         </Button>

@@ -1,19 +1,7 @@
 import classes from "./Sidebar.module.css";
-import { useEffect, useState } from "react";
 import sideBarImg from "../../assets/imgs/bitard.jpeg";
-import axios from "axios";
 
-const Sidebar = (props) => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const res = await axios.get("/category");
-      setCategories(res.data);
-    };
-    fetchCategories();
-    
-  }, []);
-
+const Sidebar = () => {
   return (
     <div className={classes.container}>
       <div className={classes.imgContainer}>
@@ -26,12 +14,6 @@ const Sidebar = (props) => {
         write a post {";)."} Don't worry about your password. Your password will
         be securely hashed.
       </p>
-      {/* <h1>Categories</h1> */}
-      {/* <ul className={classes.categoryList}>
-        {categories.map((category) => (
-          <li>{category.name}</li>
-        ))}
-      </ul> */}
     </div>
   );
 };

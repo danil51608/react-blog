@@ -21,7 +21,7 @@ const HomePage = props => {
       dispatch({ type: 'STOP_FETCHING'})
     }
     fetchPosts()
-  }, [])
+  }, [dispatch])
     return(
         <>
             <Header />

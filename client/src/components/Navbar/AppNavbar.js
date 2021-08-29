@@ -1,30 +1,25 @@
+//IMPORT MODULES
 import { useContext } from "react";
-import { Context } from "../../context/Context";
 import { Link } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import PagesList from "./PagesList";
+import { Navbar, Container, Nav } from "react-bootstrap";
+
+//IMPORT COMPONENTS
 import SocialLinks from "./SocialLinks";
 import Login from "./Login";
 import Profile from "./Profile";
 
+//IMPORT REQUIREMENTS
+import { Context } from "../../context/Context";
+
+//IMPORT STYLE
 import classes from "./Navbar.module.css";
 
-// const Navbar = props => {
-//     const {user} = useContext(Context)
-//     return (
-//         // <nav className={classes['nav-body']}>
-//         //     <SocialLinks />
-//         //     <PagesList />
-//         //     {!user && <Login />}
-//         //     {user && <Profile />}
-//         // </nav>
-//     )
-// }
-
-const AppNavbar = (props) => {
+const AppNavbar = () => {
+  //import user from context
   const { user } = useContext(Context);
+
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className={classes.navbar}>
       <Container fluid={true} className={classes.container}>
         <Navbar.Brand>
           {!user && <Login />}
@@ -47,7 +42,7 @@ const AppNavbar = (props) => {
             </Nav.Link>
             <Nav.Link>{user && <Link to="/create">WRITE</Link>}</Nav.Link>
           </Nav>
-            <SocialLinks />
+          <SocialLinks />
         </Navbar.Collapse>
       </Container>
     </Navbar>

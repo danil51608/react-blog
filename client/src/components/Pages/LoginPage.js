@@ -14,7 +14,7 @@ import axios from "axios";
 const LoginPage = () => {
   let history = useHistory();
   const [error, setError] = useState("");
-  const { user, isFetching, dispatch } = useContext(Context);
+  const { isFetching, dispatch } = useContext(Context);
   const usernameRef = useRef();
   const passwordRef = useRef();
 

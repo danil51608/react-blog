@@ -1,7 +1,7 @@
 import { useHistory, useLocation } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import EditPost from "./EditPost";
-import { Paper, TextField, Button, makeStyles } from "@material-ui/core";
+import { Paper, makeStyles } from "@material-ui/core";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import classes from "./PostDetail.module.css";
@@ -23,7 +23,7 @@ const PostDetail = (props) => {
   const id = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
   const [error, setError] = useState("");
-  const storePath = "http://localhost:5000/images/";
+  const storePath = "/images/";
   const image = post.photo ? `${storePath}${post.photo}` : testImg;
   const canEdit = user._id=== post.userId;
 

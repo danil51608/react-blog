@@ -3,17 +3,17 @@ import classes from "./SocialLinks.module.css";
 const SocialLinks = (props) => {
   return (
     <ul className={classes["links-container"]}>
-      <li>
+      {/* <li>
         <i class="fab fa-facebook-square"></i>
       </li>
       <li>
         <i class="fab fa-instagram-square"></i>
-      </li>
+      </li> */}
       <li>
         <i class="fab fa-vk"></i>
       </li>
       <li>
-        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-github-square"></i>
       </li>
     </ul>
   );

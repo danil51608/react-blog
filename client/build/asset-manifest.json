@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e83a051.chunk.css",
+    "main.js": "/static/js/main.296a8087.chunk.js",
+    "main.js.map": "/static/js/main.296a8087.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.900dd88b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.900dd88b.js.map",
+    "static/js/2.cde6d6f4.chunk.js": "/static/js/2.cde6d6f4.chunk.js",
+    "static/js/2.cde6d6f4.chunk.js.map": "/static/js/2.cde6d6f4.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.4e83a051.chunk.css.map": "/static/css/main.4e83a051.chunk.css.map",
+    "static/js/2.cde6d6f4.chunk.js.LICENSE.txt": "/static/js/2.cde6d6f4.chunk.js.LICENSE.txt",
+    "static/media/bitard.9f538a89.jpeg": "/static/media/bitard.9f538a89.jpeg",
+    "static/media/Header.module.css": "/static/media/black_marbel.241e44c9.jpg",
+    "static/media/relax.c0819d9a.jpg": "/static/media/relax.c0819d9a.jpg",
+    "static/media/robo.752c59b0.jpg": "/static/media/robo.752c59b0.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.900dd88b.js",
+    "static/js/2.cde6d6f4.chunk.js",
+    "static/css/main.4e83a051.chunk.css",
+    "static/js/main.296a8087.chunk.js"
+  ]
+}

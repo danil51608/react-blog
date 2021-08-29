@@ -67,7 +67,7 @@ const UserSettings = () => {
     <div className={classes.container}>
       <Paper elevation={3} classes={{ root: classes.paper }}>
         <form onSubmit={handleSubmit} className={classes.form}>
-          <div className={classes.imgContainer}><img src={file ? URL.createObjectURL(file) : `http://localhost:5000/images/${user.profilePic}`} /></div>
+          <div className={classes.imgContainer}><img src={file ? URL.createObjectURL(file) : `/images/${user.profilePic}`} alt='post'/></div>
           <label htmlFor="upload" className={classes.uploadIcon}>
             <i className="fas fa-plus"></i>
           </label>

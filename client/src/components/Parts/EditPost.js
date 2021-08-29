@@ -33,7 +33,7 @@ const EditPost = (props) => {
     <div className={classes.container}>
       <Paper elevation={3} className={styles.paperEl}>
       <div className={classes.imgContainer}>
-        <img src={`http://localhost:5000/images/${post.photo}`} />
+        <img src={`/images/${post.photo}`} alt={post}/>
       </div>
         <TextField
           id="standard-basic"

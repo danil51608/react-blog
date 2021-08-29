@@ -1,7 +1,8 @@
-import defaultImage from "../../assets/imgs/robo.jpg";
+//IMPORT MODULES
 import { useRef, useState, useEffect, useContext } from "react";
-import {useHistory} from "react-router-dom";
-import {Context} from '../../context/Context'
+import { useHistory } from "react-router-dom";
+
+//IMPORT UI COMPONENTS
 import {
   Menu,
   MenuItem,
@@ -9,8 +10,18 @@ import {
   withStyles,
   ListItemText,
 } from "@material-ui/core";
+
+//IMPORT REQUIREMENTS
+import { Context } from "../../context/Context";
+
+
+//IMPORT STYLE
 import classes from "./Profile.module.css";
 
+//IMPORT IMAGE PRE-SET
+import defaultImage from "../../assets/imgs/robo.jpg";
+
+//StyledMenu STYLING
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
@@ -31,10 +42,11 @@ const StyledMenu = withStyles({
   />
 ));
 
+//StyledMenuItem STYLING
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
-      backgroundColor: '#A7A7AE',
+      backgroundColor: "#A7A7AE",
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
         color: theme.palette.common.white,
       },
@@ -43,12 +55,14 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 const Profile = () => {
-  let history = useHistory()
-  const {dispatch, user} = useContext(Context)
+  let history = useHistory();
+  const { dispatch, user } = useContext(Context);
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
 
-  const imgPath = user.profilePic ? `http://localhost:5000/images/${user.profilePic}` : defaultImage
+  const imgPath = user.profilePic
+    ? `/images/${user.profilePic}`
+    : defaultImage;
 
   function handleClick(e) {
     e.stopPropagation();
@@ -59,13 +73,13 @@ const Profile = () => {
   }
 
   const settingsClick = () => {
-    history.push('/settings')
-  }
+    history.push("/settings");
+  };
 
   const handleLogout = () => {
-    dispatch({ type: 'LOGOUT'})
-    history.push('/')
-  }
+    dispatch({ type: "LOGOUT" });
+    history.push("/");
+  };
 
   useEffect(() => {
     const listener = (e) => {
@@ -88,7 +102,7 @@ const Profile = () => {
           aria-controls="customized-menu"
           aria-haspopup="true"
           variant="contained"
-          classes={{root: classes.menuButton}}
+          classes={{ root: classes.menuButton }}
           onClick={handleClick}
           ref={divRef}
         >

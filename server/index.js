@@ -25,6 +25,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useCreateIndex: true
 }).then(console.log('Connected to MongoDB')).catch(e => console.log(e))
 
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'images')
@@ -43,7 +44,9 @@ app.use('/user', userRouter)
 app.use('/post', postRouter)
 app.use('/category', categoryRouter)
 
-
+if(process.env.NODE_ENV === 'production'){
+     app.use(express.static('client/build'))
+}
 
 app.listen(PORT, ()=> {
     console.log(`listening on port ${PORT}`)

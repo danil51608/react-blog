@@ -30,7 +30,7 @@ const PostCard = ({post}) => {
   const classes = useStyles();
   let history = useHistory();
   const { title, desc, _id:id, photo } = post;
-  const storagePath = 'http://localhost:5000/images/'
+  const storagePath = '/images/'
   const image = photo ? `${storagePath}${photo}` : RelaxImg
   
   //FUNCTIONS

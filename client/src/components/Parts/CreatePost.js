@@ -10,7 +10,6 @@ const CreatePost = () => {
   let history = useHistory()
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [cat, setCat] = useState("");
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
   const { user } = useContext(Context);
@@ -25,7 +24,6 @@ const CreatePost = () => {
     const newPost = {
       title,
       desc,
-      categories: cat,
       userId: user._id,
       username: user.username
     };
@@ -59,7 +57,7 @@ const CreatePost = () => {
         <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
           {file && (
             <div className={classes.imgContainer}>
-              <img src={URL.createObjectURL(file)} />
+              <img src={URL.createObjectURL(file)} alt={'Post'}/>
             </div>
           )}
           <label htmlFor="upload" className={classes.uploadIcon}>
@@ -90,14 +88,6 @@ const CreatePost = () => {
             fullWidth
             onChange={(e) => setDesc(e.target.value)}
           />
-          {/* <TextField
-            id="standard-basic"
-            label="Category"
-            value={cat}
-            margin="normal"
-            onChange={(e) => setCat(e.target.value)}
-          /> */}
-
           <Button
             variant="contained"
             color="primary"
