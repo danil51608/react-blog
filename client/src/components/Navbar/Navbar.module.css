@@ -2,6 +2,10 @@
     align-items: center;
 }
 
+.menuBtn{
+    margin: 0;
+}
+
 /* .menuBtn{
     margin: 0;
 }

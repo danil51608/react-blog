@@ -25,7 +25,7 @@ const PostDetail = (props) => {
   const [error, setError] = useState("");
   const storePath = "/images/";
   const image = post.photo ? `${storePath}${post.photo}` : testImg;
-  const canEdit = user._id=== post.userId;
+  const canEdit = user && user._id === post.userId;
 
   //FUNCTIONS
 

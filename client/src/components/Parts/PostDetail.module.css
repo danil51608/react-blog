@@ -25,6 +25,9 @@
 
 .mainInfo{
     text-align: left;
+    width: 90vw;
+    max-width: 900px;
+    overflow-wrap: break-word;
 }
 
 .description{
