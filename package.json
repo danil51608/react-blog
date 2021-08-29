@@ -3,17 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-      "node": "14.17.0",
-      "npm": "7.19.0"
-  },
   "scripts": {
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node server/index.js",
+    "start": "node index.js",
     "client": "cd client && npm start",
-    "dev": "nodemon server/index.js"
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
