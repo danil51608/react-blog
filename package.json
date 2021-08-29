@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://danya-first-blog.herokuapp.com/",
   "engines": {
       "node": "14.17.0",
       "npm": "7.19.0"
