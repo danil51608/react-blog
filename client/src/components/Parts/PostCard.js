@@ -30,7 +30,7 @@ const PostCard = ({post}) => {
   const classes = useStyles();
   let history = useHistory();
   const { title, desc, _id:id, photo } = post;
-  const storagePath = '/images/'
+  const storagePath = 'https://danya-first-blog.herokuapp.com/images/'
   const image = photo ? `${storagePath}${photo}` : RelaxImg
   
   //FUNCTIONS
