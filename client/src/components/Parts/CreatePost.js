@@ -39,7 +39,9 @@ const CreatePost = () => {
       //upload img
       try {
         await axios.post("/upload", data);
-      } catch(e) {}
+      } catch(e) {
+        
+      }
     }
 
     //upload post
