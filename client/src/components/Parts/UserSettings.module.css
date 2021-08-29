@@ -4,6 +4,8 @@
   justify-content: center;
   padding: 10px;
   height: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .form {
@@ -36,8 +38,20 @@
   color: #43adce;
 }
 
-button {
+/* .button {
   margin: 0 auto;
+} */
+
+.backdrop{
+  z-index: 9999 !important;
+}
+
+.checkForm{
+  padding: 20px;
+}
+
+.checkForm button{
+  margin-right: 5px;
 }
 
 @media (max-width: 550px) {

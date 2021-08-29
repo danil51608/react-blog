@@ -1,5 +1,6 @@
 const Post = require("../models/Post");
 const router = require('express').Router();
+const fs = require('fs');
 
 // CREATE NEW POST
 router.post("/", async (req, res) => {
@@ -36,6 +37,10 @@ router.delete("/:id", async (req, res) => {
         if(post.username === req.body.username){
             try{
                 await post.delete();
+                fs.unlink(`images/${post.photo}`, (err)=>{
+                  if(err){throw err}
+                  else {console.log('Image deleted successfully')}
+                })
                 res.status(200).json('Post deleted successfully')
             } catch(e){
                 res.status(500).json(e)

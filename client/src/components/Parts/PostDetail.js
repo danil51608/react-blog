@@ -72,7 +72,7 @@ const PostDetail = (props) => {
             </h1>
             <div className={classes.author}>
               <h3>Author: {post.username}</h3>
-              <h3>Posted 2 hour ago</h3>
+              <h3>{new Date(post.createdAt).toDateString()}</h3>
             </div>
             <div className={classes.description}>
               <p>{post.desc}</p>

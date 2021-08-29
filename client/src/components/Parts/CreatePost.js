@@ -4,14 +4,15 @@ import {useHistory} from 'react-router-dom'
 import { Context } from "../../context/Context";
 import axios from "axios";
 import { Paper, TextField, Button } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const CreatePost = () => {
   // CONSTS AND STATES
   let history = useHistory()
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
   const [file, setFile] = useState(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const { user } = useContext(Context);
 
   //FUNCTIONS
@@ -19,7 +20,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     setError(false); //clear error on every new request
     e.preventDefault();
-
+    
     //create new instance of post
     const newPost = {
       title,
@@ -40,7 +41,7 @@ const CreatePost = () => {
       try {
         await axios.post("/upload", data);
       } catch(e) {
-        
+        setError(`Image upload has failed`)
       }
     }
 
@@ -49,7 +50,7 @@ const CreatePost = () => {
       await axios.post("/post", newPost);
       history.push("/"); //redirect to homepage
     } catch(e) {
-      setError(true); //show error
+      setError('Something went wrong! Try again later'); //show error
     }
   };
 
@@ -95,11 +96,16 @@ const CreatePost = () => {
             color="primary"
             type="submit"
             margin="normal"
+            disabled={!title || !desc}
           >
             Create
           </Button>
         </form>
-        {error && <p>Something went wrong!</p>}
+        {error && (
+          <Alert severity="error">
+            <strong>{error}</strong>
+          </Alert>
+        )}
       </Paper>
     </div>
   );
