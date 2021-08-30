@@ -24,7 +24,9 @@ import defaultImage from "../../assets/imgs/robo.jpg";
 //StyledMenu STYLING
 const StyledMenu = withStyles({
   paper: {
-    border: "1px solid #d3d4d5",
+    border: "1px solid #494E54",
+    backgroundColor: '#1D3557',
+    color: '#F1FAEE',
   },
 })((props) => (
   <Menu
@@ -46,7 +48,7 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
-      backgroundColor: "#A7A7AE",
+      backgroundColor: "#72A1C0",
       "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
         color: theme.palette.common.white,
       },

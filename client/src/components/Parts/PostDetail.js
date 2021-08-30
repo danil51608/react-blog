@@ -56,8 +56,9 @@ const PostDetail = (props) => {
           <div className={classes.mainInfo}>
             <h1>
               {post.title}
+            </h1>
               {canEdit && (
-                <div>
+                <div className='icons'>
                   <span
                     className={classes.icons}
                     onClick={(e) => setEdit(true)}
@@ -69,7 +70,6 @@ const PostDetail = (props) => {
                   </span>
                 </div>
               )}
-            </h1>
             <div className={classes.author}>
               <h3>Author: {post.username}</h3>
               <h3>{new Date(post.createdAt).toDateString()}</h3>

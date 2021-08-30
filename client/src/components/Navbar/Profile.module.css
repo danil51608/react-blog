@@ -2,9 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: -1px;
     flex: 2;
+    color: #1D3557;
 }
 
 .img-container{
@@ -24,8 +25,9 @@
 }
 
 .menuButton{
-    background: #000;
-    color: #fff;
+    background: #1D3557 !important;
+    color: #F1FAEE !important;
+    font-weight: bold !important;
 }
 
 .username{

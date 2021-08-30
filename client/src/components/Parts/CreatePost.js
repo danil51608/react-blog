@@ -96,6 +96,7 @@ const CreatePost = () => {
             color="primary"
             type="submit"
             margin="normal"
+            className={classes.createBtn}
             disabled={!title || !desc}
           >
             Create

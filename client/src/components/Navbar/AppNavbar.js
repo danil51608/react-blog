@@ -19,7 +19,7 @@ const AppNavbar = () => {
   const { user } = useContext(Context);
 
   return (
-    <Navbar bg="light" expand="lg" className={classes.navbar}>
+    <Navbar expand="lg" className={classes.navbar}>
       <Container fluid={true} className={classes.container}>
         <Navbar.Brand>
           {!user && <Login />}

@@ -23,6 +23,17 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  title: {
+    fontFamily: 'Open Sans',
+    fontWeight: 600,
+    lineHeight: 1.2,
+    letterSpacing: '-1px',
+    textAlign: 'left'
+  },
+  text: {
+    fontFamily: 'Open Sans',
+    lineHeight: 1.5,
+  }
 });
 
 const PostCard = ({post}) => {
@@ -47,18 +58,15 @@ const PostCard = ({post}) => {
           title="Contemplative Reptile"
         />
         <CardContent className={styles.info}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.title} >
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" className={styles.desc}>
+          <Typography variant="body2" color="textSecondary" component="p" className={`${styles.desc} ${classes.text}`}>
             {desc}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={styles.postActions}>
-        <Button size="small" color="primary">
-          Share
-        </Button>
         <Button size="small" color="primary" onClick={handleClick}>
           Learn More
         </Button>

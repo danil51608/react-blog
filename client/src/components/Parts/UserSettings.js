@@ -119,7 +119,7 @@ const UserSettings = () => {
             margin="normal"
             onChange={(e) => handleConfirmPass(e)}
           />
-          <Button type="submit" color="primary" variant="contained">
+          <Button type="submit" color="primary" variant="contained" className={classes.blueBtn}>
             Save
           </Button>
           <br />
@@ -127,6 +127,7 @@ const UserSettings = () => {
             color="secondary"
             variant="contained"
             onClick={(e) => setCheckDelete(true)}
+            className={classes.redBtn}
           >
             Delete account
           </Button>
@@ -141,6 +142,7 @@ const UserSettings = () => {
             variant="contained"
             color="primary"
             onClick={(e) => handleDelete()}
+            className={classes.blueBtn}
           >
             Yes
           </Button>
@@ -148,6 +150,7 @@ const UserSettings = () => {
             variant="contained"
             color="secondary"
             onClick={(e) => setCheckDelete(false)}
+            className={classes.redBtn}
           >
             No
           </Button>

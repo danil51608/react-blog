@@ -1,7 +1,17 @@
 .navbar{
     align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    background: #9cbdd3;
+    color: #1D3557
 }
 
+.navbar a {
+    color: #1D3557;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
 .menuBtn{
     margin: 0;
 }

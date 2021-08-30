@@ -29,13 +29,13 @@
 }
 
 .uploadIcon {
-  color: #1539db;
+  color: #1D3557;
   font-size: 24px;
 }
 
 .uploadIcon:hover {
   cursor: pointer;
-  color: #43adce;
+  color: #9CBDD3;
 }
 
 /* .button {
@@ -52,6 +52,14 @@
 
 .checkForm button{
   margin-right: 5px;
+}
+
+.blueBtn{
+  background-color: #1D3557 !important;
+}
+
+.redBtn{
+  background-color: #E63946 !important;
 }
 
 @media (max-width: 550px) {

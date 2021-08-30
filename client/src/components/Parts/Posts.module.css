@@ -6,6 +6,7 @@
     justify-content: space-around;
     padding: 20px;
     position: relative;
+    background: #D1DEF0;
 }
 
 .container:last-child{

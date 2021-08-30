@@ -15,6 +15,13 @@ const RegisterPage = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(password.trim().length < 8){
+      return setError('Passwort must be at least 8 characters')
+    }
+    if(!email.includes('@')){
+      return setError('Invalid email')
+    }
+    
     setError(false);
     setIsFetching(true)
     try {

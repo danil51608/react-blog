@@ -1,11 +1,13 @@
 .container{
     display: flex;
     flex-direction: column;
-    font-family: 'Raleway', sans-serif;
-    background: url(../../assets//imgs/black_marbel.jpg);
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    /* background: url(../../assets//imgs/abstract3.jpg); */
+    background: #1D3557;
     background-size: cover;
     color: #fff;
-    min-height: 300px;
+    height: 70vh;
     justify-content: center;
 }
 
@@ -18,10 +20,13 @@
 
 .myName{
     font-size: 15px;
+    
 }
 
 .appName{
     font-size: 75px;
+    line-height: 1.2;
+    letter-spacing: -4px;
 }
 
 @media (max-width: 440px){

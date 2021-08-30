@@ -1,7 +1,16 @@
 
 .login{
-    font-family: 'Urbanist';
     display: flex;
     flex: 2;
     justify-content: flex-end;
+}
+
+.login > button{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.menuButton{
+    background: #1D3557 !important;
+    color: #F1FAEE !important;
+    font-weight: bold !important;
 }

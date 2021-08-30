@@ -3,6 +3,7 @@
     flex: 8;
     justify-content: center;
     padding: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .container{
@@ -30,27 +31,48 @@
     overflow-wrap: break-word;
 }
 
-.description{
-    font-size: 18px;
+.mainInfo > h1{
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    color: #1D3557;
 }
+
+.icons{
+    font-size: 25px;
+
+}
+
+.description{
+    font-size: 24px;
+    line-height: 1.5;
+    color: #1D3557;
+}
+
+.author > h3{
+    font-size: 18px;
+    color: #1D3557;
+}
+
 
 .icons:hover{
     cursor: pointer;
 }
 
 .icons:first-child{
-    color: #507ac7;
+    color: #1D3557;
     margin-right: 10px;
 }
 
 .icons:first-child:hover{
-    color: #000;
+    color: #9CBDD3;
 }
 
 .icons:last-child{
-    color: #c75050;
+    color: #E63946;
 }
 
 .icons:last-child:hover{
-    color: #000;
+    color: #9CBDD3;
 }

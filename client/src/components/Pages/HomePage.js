@@ -27,7 +27,7 @@ const HomePage = props => {
             <Header />
             <div className={classes.container}>
               <Posts posts={posts}/>
-              <SideBar />
+              {/* <SideBar /> */}
             </div>
         </>
     )
