@@ -1,29 +1,24 @@
 const Reducer = (state, action) => {
   switch (action.type) {
-    case "LOGIN_START":
-      return {
-        user: null,
-        isFetching: true,
-      };
     case "LOGIN_SUCCESS":
       return {
         user: action.payload,
-        isFetching: false,
+        isFetching: state.isFetching,
       };
     case "LOGIN_FAILURE":
       return {
         user: null,
-        isFetching: false,
+        isFetching: state.isFetching,
       };
     case "LOGOUT":
       return {
         user: null,
-        isFetching: false,
+        isFetching: state.isFetching,
       };
     case "UPDATE_USER":
       return {
         user: action.payload,
-        isFetching: false,
+        isFetching: state.isFetching,
       };
     case "SET_FETCHING":
       return {
@@ -33,7 +28,7 @@ const Reducer = (state, action) => {
     case "STOP_FETCHING":
       return {
         user: state.user,
-        isFetching: false
+        isFetching: false,
       };
     default:
       return state;

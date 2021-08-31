@@ -29,37 +29,21 @@
 }
 
 .uploadIcon {
-  color: #1D3557;
+  color: #1d3557;
   font-size: 24px;
 }
 
 .uploadIcon:hover {
   cursor: pointer;
-  color: #9CBDD3;
+  color: #9cbdd3;
 }
 
-/* .button {
-  margin: 0 auto;
-} */
-
-.backdrop{
-  z-index: 9999 !important;
-}
-
-.checkForm{
+.checkForm {
   padding: 20px;
 }
 
-.checkForm button{
+.checkForm button {
   margin-right: 5px;
-}
-
-.blueBtn{
-  background-color: #1D3557 !important;
-}
-
-.redBtn{
-  background-color: #E63946 !important;
 }
 
 @media (max-width: 550px) {

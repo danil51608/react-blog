@@ -10,17 +10,19 @@ import {
   withStyles,
   ListItemText,
   ClickAwayListener,
+  ThemeProvider,
 } from "@material-ui/core";
 
 //IMPORT STYLES
 import classes from "./Login.module.css";
+import { theme } from "../theme";
 
 //MENU STYLING
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #494E54",
-    backgroundColor: '#1D3557',
-    color: '#F1FAEE'
+    backgroundColor: "#1D3557",
+    color: "#F1FAEE",
   },
 })((props) => (
   <Menu
@@ -77,13 +79,12 @@ const Login = () => {
 
   return (
     <div className={classes.login}>
-      <div>
+      <ThemeProvider theme={theme}>
         <Button
           aria-controls="customized-menu"
           aria-haspopup="true"
-          variant="contained"
-          classes={{ root: classes.menuButton }}
           onClick={handleClick}
+          color="primary"
           ref={butRef}
         >
           {buttonName}
@@ -104,7 +105,7 @@ const Login = () => {
             </StyledMenuItem>
           </StyledMenu>
         </ClickAwayListener>
-      </div>
+      </ThemeProvider>
     </div>
   );
 };

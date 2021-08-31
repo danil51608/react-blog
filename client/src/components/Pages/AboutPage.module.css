@@ -1,36 +1,72 @@
-.container{
-    display: flex;
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1500px;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  background: #d1def0;
+  padding: 20px 0;
+  color: #1d3557;
+  margin: 0 auto;
+}
+
+.container h1 {
+  text-decoration: underline;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+}
+
+.container p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.content {
+  display: flex;
+}
+
+.imgContainer {
+  width: 50%;
+  float: left;
+  padding-right: 20px;
+}
+
+.imgContainer > img {
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+}
+
+.list {
+  display: inline-block;
+}
+
+.contacts > i {
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+@media (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+  .imgContainer {
     width: 100%;
-    justify-content: center;
-    font-family: 'Open Sans', sans-serif;
-    background: #D1DEF0;
-    padding-top: 20px;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
 }
 
-.container h1{
-    text-decoration: underline;
-    font-size: 50px;
-    font-weight: 600;
-    letter-spacing: -1px;
-}
-
-.container p{
-    font-size: 20px;
-}
-
-.imgContainer{
-    width: 30%;
-    float: left;
-    padding: 0 20px 20px 0;
-}
-
-.imgContainer > img{
-    width: 100%;
-}
-
-@media (max-width: 690px){
-    .imgContainer{
-        float: none;
-        width: 100%;
-    }
+@media (max-width: 425px) {
+  .container h1 {
+    font-size: 40px;
+  }
+  .container p {
+    font-size: 14px;
+  }
 }

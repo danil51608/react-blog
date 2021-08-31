@@ -20,25 +20,19 @@ const AppNavbar = () => {
 
   return (
     <Navbar expand="lg" className={classes.navbar}>
-      <Container fluid={true} className={classes.container}>
+      <Container fluid={true}>
         <Navbar.Brand>
           {!user && <Login />}
           {user && <Profile />}
         </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          className={classes.menuBtn}
-        />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto" className={classes.navbar}>
+          <Nav className="me-auto">
             <Nav.Link>
               <Link to="/">HOME</Link>
             </Nav.Link>
             <Nav.Link>
               <Link to="/aboutme">ABOUT</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/aboutme">CONTACT</Link>
             </Nav.Link>
             <Nav.Link>{user && <Link to="/create">WRITE</Link>}</Nav.Link>
           </Nav>

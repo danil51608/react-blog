@@ -5,15 +5,15 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 
 const useStyles = makeStyles({
-    paperEl: {
-        padding: '20px'
-    }
-})
+  paperEl: {
+    padding: "20px",
+  },
+});
 
 const EditPost = (props) => {
-  const styles = useStyles()
-  const { setEdit, post } = props;
+  const { setEdit, post } = props; // toggle edit mode
   const { user } = useContext(Context);
+  const styles = useStyles();
   const [title, setTitle] = useState(post.title);
   const [desc, setDesc] = useState(post.desc);
 
@@ -24,7 +24,8 @@ const EditPost = (props) => {
         desc: desc,
         userId: user._id,
       });
-      setEdit(false);
+
+      setEdit(false); // edit mode off
     } catch (e) {
       console.log("some error");
     }
@@ -32,9 +33,9 @@ const EditPost = (props) => {
   return (
     <div className={classes.container}>
       <Paper elevation={3} className={styles.paperEl}>
-      <div className={classes.imgContainer}>
-        <img src={`/images/${post.photo}`} alt={post}/>
-      </div>
+        <div className={classes.imgContainer}>
+          <img src={`/images/${post.photo}`} alt={post} />
+        </div>
         <TextField
           id="standard-basic"
           label="Title"

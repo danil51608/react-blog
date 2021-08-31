@@ -1,12 +1,12 @@
 import { Paper, makeStyles } from "@material-ui/core";
 import classes from "./AboutPage.module.css";
-import myImage from "../../assets/imgs/bitard.jpeg";
+import myImage from "../../assets/imgs/bitard.jpg";
 
 const useStyles = makeStyles({
   root: {
     width: "90%",
     padding: "20px",
-    textAlign: 'left'
+    textAlign: "left",
   },
 });
 
@@ -16,36 +16,41 @@ const AboutPage = () => {
     <div className={classes.container}>
       <Paper elevation={3} className={styles.root}>
         <h1>About me</h1>
-        <div className={classes.imgContainer}>
-          <img src={myImage} alt="me" />
+        <div className={classes.content}>
+          <div className={classes.imgContainer}>
+            <img src={myImage} alt="me" />
+          </div>
+          <div className={classes.text}>
+            <p>
+              Привет и добро пожаловать в мой блог! Меня зовут Данил. Я Junior
+              Fullstack Developer. Мне нравится делать сайты и приложения. С
+              некоторыми из моих приложений вы можете ознакомиться на моем
+              GitHub.
+              <br />
+              Кстати, этот тот блок был написан полностью мной от А до Я {":)"}.
+              <br />
+              При его создании я использовал:
+              <br />
+              <ul className={classes.list}>
+                <li>Node.Js</li>
+                <li>React</li>
+                <li>MongoDB</li>
+                <li>MaterialUI</li>
+              </ul>
+              <br />
+              Кроме вышеперечисленного, данный сайт является адаптивным. Можете
+              опробовать весь функционал этого блога зарегистрировавшись и
+              написав пару постов. Пароли хранятся в захэшированном виде.
+            </p>
+            <div className={classes.contacts}>
+              <i class="far fa-envelope"> </i>
+              <span>danil51608@gmail.com</span>
+              <br />
+              <i class="fas fa-mobile"></i>
+              <span>+7 (917)-364-69-09</span>
+            </div>
+          </div>
         </div>
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus
-          asperiores repellat. At vero eos et accusamus et iusto odio
-          dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
-          atque corrupti quos dolores et quas molestias excepturi sint occaecati
-          cupiditate non provident, similique sunt in culpa qui officia deserunt
-          mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
-          facilis est et expedita distinctio. Nam libero tempore, cum soluta
-          nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-          placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-          repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-          rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-          et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
-          delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-          perferendis doloribus asperiores repellat.
-        </p>
       </Paper>
     </div>
   );

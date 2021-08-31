@@ -1,17 +1,23 @@
 import { useState } from "react";
+
 import { useHistory } from "react-router-dom";
-import { TextField, Button, Backdrop, CircularProgress } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
-import classes from "./LoginPage.module.css";
+
 import axios from "axios";
 
-const RegisterPage = (props) => {
-  let history = useHistory();
+import { TextField, Button, Backdrop, CircularProgress, ThemeProvider } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+
+//STYLES
+import {theme} from "../theme"
+import classes from "./LoginPage.module.css";
+
+const RegisterPage = () => {
+  let history = useHistory(); // used for Router redirection
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isFetching, setIsFetching] = useState(false)
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [isFetching, setIsFetching] = useState(false) // hide/show loader
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,18 +28,25 @@ const RegisterPage = (props) => {
       return setError('Invalid email')
     }
     
-    setError(false);
-    setIsFetching(true)
+    setError(false); // clear previos errors
+    setIsFetching(true) // show loader
+
     try {
+
       const res = await axios.post("/auth/register", {
         username,
         password,
         email,
       });
+
       res.data && history.push("/login");
-      setIsFetching(false)
-    } catch (error) {
-      setIsFetching(false)
+
+      setIsFetching(false) //hide loader
+    } 
+    catch (error) {
+      setIsFetching(false) //hide loader
+
+      // check for custom server message
       if (error.response.data.customMessage) {
         setError(error.response.data.customMessage);
       }
@@ -42,50 +55,46 @@ const RegisterPage = (props) => {
 
   return (
     <div className={classes["login-body"]}>
-      <form className={classes["login-form"]} onSubmit={(e) => handleSubmit(e)}>
-        <h1>Registration</h1>
-        <TextField
-          classes={{ root: classes.textField }}
-          id="outlined-basic"
-          margin="normal"
-          label="Username"
-          // variant="outlined"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <TextField
-          classes={{ root: classes.textField }}
-          id="outlined-basic"
-          margin="normal"
-          label="Email"
-          // variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <TextField
-          classes={{ root: classes.textField }}
-          id="outlined-basic"
-          label="Password"
-          margin="normal"
-          type="password"
-          // variant="outlined"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Button
-          type="submit"
-          classes={{ root: classes.submitButton }}
-          variant="contained"
-          color="primary"
-        >
-          Sign in
-        </Button>
-        {error && (
-          <Alert severity="error">
-            <strong>{error}</strong>
-          </Alert>
-        )}
-      </form>
-      <Backdrop open={isFetching} className={classes.backdrop}>
-          <CircularProgress />
-        </Backdrop>
+     <ThemeProvider theme={theme}>
+        <form className={classes["login-form"]} onSubmit={(e) => handleSubmit(e)}>
+          <h1>Registration</h1>
+          <TextField
+            classes={{ root: classes.textField }}
+            id="outlined-basic"
+            margin="normal"
+            label="Username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            margin="normal"
+            label="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Password"
+            margin="normal"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Sign in
+          </Button>
+          {error && (
+            <Alert severity="error">
+              <strong>{error}</strong>
+            </Alert>
+          )}
+        </form>
+        <Backdrop open={isFetching}>
+            <CircularProgress />
+          </Backdrop>
+     </ThemeProvider>
     </div>
   );
 };

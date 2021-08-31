@@ -16,12 +16,13 @@ function App() {
       <AppNavbar />
       <div className="App">
         <Switch>
+          
           <Route exact path="/">
             <HomePage />
           </Route>
 
           <Route path="/posts">
-              <PostDetail />
+            <PostDetail />
           </Route>
 
           <Route path="/login">
@@ -33,7 +34,7 @@ function App() {
           </Route>
 
           <Route path="/create">
-            <div style={{ display: "flex", flexDirection:"column" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <CreatePost />
             </div>
           </Route>

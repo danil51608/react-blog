@@ -1,13 +1,11 @@
-.container{
-    display: flex;
+.container {
+  display: flex;
 }
-
-
 
 /* BREAK POINTS */
 
 @media (max-width: 1400px) {
-    .container{
-        flex-direction: column;
-    }
+  .container {
+    flex-direction: column;
+  }
 }

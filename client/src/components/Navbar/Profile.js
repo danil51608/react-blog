@@ -9,14 +9,15 @@ import {
   Button,
   withStyles,
   ListItemText,
+  ThemeProvider,
 } from "@material-ui/core";
 
 //IMPORT REQUIREMENTS
 import { Context } from "../../context/Context";
 
-
 //IMPORT STYLE
 import classes from "./Profile.module.css";
+import { theme } from "../theme";
 
 //IMPORT IMAGE PRE-SET
 import defaultImage from "../../assets/imgs/robo.jpg";
@@ -25,8 +26,8 @@ import defaultImage from "../../assets/imgs/robo.jpg";
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #494E54",
-    backgroundColor: '#1D3557',
-    color: '#F1FAEE',
+    backgroundColor: "#1D3557",
+    color: "#F1FAEE",
   },
 })((props) => (
   <Menu
@@ -62,9 +63,7 @@ const Profile = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
 
-  const imgPath = user.profilePic
-    ? `/images/${user.profilePic}`
-    : defaultImage;
+  const imgPath = user.profilePic ? `/images/${user.profilePic}` : defaultImage;
 
   function handleClick(e) {
     e.stopPropagation();
@@ -99,32 +98,34 @@ const Profile = () => {
       <div className={classes["img-container"]}>
         <img src={imgPath} alt="profile" />
       </div>
-      <div>
-        <Button
-          aria-controls="customized-menu"
-          aria-haspopup="true"
-          variant="contained"
-          classes={{ root: classes.menuButton }}
-          onClick={handleClick}
-          ref={divRef}
-        >
-          Menu
-        </Button>
-        <StyledMenu
-          id="customized-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <StyledMenuItem onClick={settingsClick}>
-            <ListItemText primary="Settings" />
-          </StyledMenuItem>
-          <StyledMenuItem onClick={handleLogout}>
-            <ListItemText primary="Logout" />
-          </StyledMenuItem>
-        </StyledMenu>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div>
+          <Button
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+            color="primary"
+            variant="contained"
+            ref={divRef}
+          >
+            Menu
+          </Button>
+          <StyledMenu
+            id="customized-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <StyledMenuItem onClick={settingsClick}>
+              <ListItemText primary="Settings" />
+            </StyledMenuItem>
+            <StyledMenuItem onClick={handleLogout}>
+              <ListItemText primary="Logout" />
+            </StyledMenuItem>
+          </StyledMenu>
+        </div>
+      </ThemeProvider>
     </div>
   );
 };

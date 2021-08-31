@@ -1,16 +1,15 @@
-
-.login{
-    display: flex;
-    flex: 2;
-    justify-content: flex-end;
+.login {
+  display: flex;
+  flex: 2;
+  justify-content: flex-end;
 }
 
-.login > button{
-    font-family: 'Open Sans', sans-serif;
+.login > button {
+  font-family: "Open Sans", sans-serif;
 }
 
-.menuButton{
-    background: #1D3557 !important;
-    color: #F1FAEE !important;
-    font-weight: bold !important;
+.menuButton {
+  background: #1d3557 !important;
+  color: #f1faee !important;
+  font-weight: bold !important;
 }

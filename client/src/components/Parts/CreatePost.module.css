@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   min-width: 500px;
@@ -16,41 +16,31 @@
 }
 
 .imgContainer {
-    width: 70%;
-    margin: 0 auto;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .imgContainer > img {
-    width: 100%;
+  width: 100%;
 }
 
-.uploadIcon{
-    color: #1D3557;
-    font-size: 24px;
+.uploadIcon {
+  color: #1d3557;
+  font-size: 24px;
 }
 
-.uploadIcon:hover{
-    cursor: pointer;
-    color: #9CBDD3;
+.uploadIcon:hover {
+  cursor: pointer;
+  color: #9cbdd3;
 }
 
-.createBtn{
-  margin: 0 auto;
-  background-color: #1D3557 !important;
-}
-
-.createBtn:disabled{
-  background-color: #C7D9E6 !important;
-}
-
-
-@media (max-width: 550px){
-  .container{
+@media (max-width: 550px) {
+  .container {
     width: 100%;
   }
 
-  .form{
-      display: block;
-      min-width: 50px;
+  .form {
+    display: block;
+    min-width: 50px;
   }
 }

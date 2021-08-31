@@ -1,52 +1,20 @@
-.navbar{
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    background: #9cbdd3;
-    color: #1D3557
+.navbar {
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  background: #9cbdd3;
+  color: #1d3557;
+  padding: 10px;
+  position: sticky;
 }
 
 .navbar a {
-    color: #1D3557;
+  color: #1d3557;
 }
 
 .navbar a:hover {
-    color: #fff;
-}
-.menuBtn{
-    margin: 0;
+  color: #fff;
 }
 
-/* .menuBtn{
-    margin: 0;
+.links {
+  width: auto;
 }
-
-.nav-body{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: #fff;
-}
-
-.nav-link{
-    text-align: center;
-} */
-
-/* BREAK POINTS */  
-
-/* @media (max-width: 850px) {
-    .nav-body{
-        flex-direction: column-reverse;
-
-    }
-}
-
-@media (max-width: 666px) {
-    .nav-body{
-        position: relative;
-
-    }
-} */

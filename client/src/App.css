@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-body{
-  background: #D1DEF0;
+body {
+  background: #d1def0;
 }
 
 .App-logo {
@@ -42,6 +42,6 @@ body{
   }
 }
 
-a{
+a {
   text-decoration: none;
 }

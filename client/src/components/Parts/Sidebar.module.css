@@ -1,54 +1,54 @@
-.container{
-    flex: 2;
-    text-align: left;
-    padding: 10px;
-    width: 50%;
-    margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
+.container {
+  flex: 2;
+  text-align: left;
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
 }
 
-.container > h1{
-    text-decoration: underline;
-    font-weight: 600;
+.container > h1 {
+  text-decoration: underline;
+  font-weight: 600;
 }
 
-.container > p{
-    font-size: 16px;
-    line-height: 1.5;
+.container > p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-.imgContainer{
-    width: 100%;
+.imgContainer {
+  width: 100%;
 }
 
-.imgContainer > img{
-    width: 100%;
+.imgContainer > img {
+  width: 100%;
 }
 
-.categoryList{
-    list-style: none;
+.categoryList {
+  list-style: none;
 }
 
-.categoryList > li{
-    display: inline-block;
-    margin-right: 5px;
+.categoryList > li {
+  display: inline-block;
+  margin-right: 5px;
 }
 
-.categoryList > li:last-child{
-    margin: 0;
+.categoryList > li:last-child {
+  margin: 0;
 }
 
 /* BREAK POINTS */
 
-@media (max-width: 1400px){
-    .container{
-        width: 50%;
-        margin: 0 auto;
-    }
+@media (max-width: 1400px) {
+  .container {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 
-@media (max-width: 450px){
-    .container{
-        width: 100%;
-    }
+@media (max-width: 450px) {
+  .container {
+    width: 100%;
+  }
 }

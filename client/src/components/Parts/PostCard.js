@@ -7,12 +7,12 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button
+  Button,
 } from "@material-ui/core";
 import RelaxImg from "../../assets/imgs/relax.jpg";
-import styles from './PostCard.module.css'
+import styles from "./PostCard.module.css";
 
-//material ui styles 
+//material ui styles
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -24,26 +24,26 @@ const useStyles = makeStyles({
     height: 140,
   },
   title: {
-    fontFamily: 'Open Sans',
+    fontFamily: "Open Sans",
     fontWeight: 600,
     lineHeight: 1.2,
-    letterSpacing: '-1px',
-    textAlign: 'left'
+    letterSpacing: "-1px",
+    textAlign: "left",
   },
   text: {
-    fontFamily: 'Open Sans',
+    fontFamily: "Open Sans",
     lineHeight: 1.5,
-  }
+  },
 });
 
-const PostCard = ({post}) => {
+const PostCard = ({ post }) => {
   //CONSTS AND STATES
+  const { title, desc, _id: id, photo } = post;
   const classes = useStyles();
   let history = useHistory();
-  const { title, desc, _id:id, photo } = post;
-  const storagePath = 'https://danya-first-blog.herokuapp.com/images/'
-  const image = photo ? `${storagePath}${photo}` : RelaxImg
-  
+  const storagePath = "https://danya-first-blog.herokuapp.com/images/";
+  const image = photo ? `${storagePath}${photo}` : RelaxImg;
+
   //FUNCTIONS
   function handleClick() {
     history.push(`/posts/${id}`);
@@ -58,10 +58,20 @@ const PostCard = ({post}) => {
           title="Contemplative Reptile"
         />
         <CardContent className={styles.info}>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title} >
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            className={classes.title}
+          >
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" className={`${styles.desc} ${classes.text}`}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            component="p"
+            className={`${styles.desc} ${classes.text}`}
+          >
             {desc}
           </Typography>
         </CardContent>

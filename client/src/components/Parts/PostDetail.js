@@ -5,7 +5,7 @@ import { Paper, makeStyles } from "@material-ui/core";
 import { Context } from "../../context/Context";
 import axios from "axios";
 import classes from "./PostDetail.module.css";
-import testImg from "../../assets/imgs/relax.jpg";
+import defaultImg from "../../assets/imgs/relax.jpg";
 
 const useStyles = makeStyles({
   paperEl: {
@@ -13,19 +13,20 @@ const useStyles = makeStyles({
   },
 });
 
-const PostDetail = (props) => {
+const PostDetail = () => {
   //CONST AND STATES
-  const styles = useStyles();
-  const location = useLocation();
-  let history = useHistory();
-  const [edit, setEdit] = useState(false);
   const { user } = useContext(Context);
-  const id = location.pathname.split("/")[2];
+  const [edit, setEdit] = useState(false); // toggle edit mode
   const [post, setPost] = useState({});
   const [error, setError] = useState("");
+  const location = useLocation();
+  let history = useHistory(); // used for Router redirection
+  const styles = useStyles();  
+                    
+  const id = location.pathname.split("/")[2]; // get id from url
   const storePath = "/images/";
-  const image = post.photo ? `${storePath}${post.photo}` : testImg;
-  const canEdit = user && user._id === post.userId;
+  const image = post.photo ? `${storePath}${post.photo}` : defaultImg;
+  const canEdit = user && user._id === post.userId; // check if user owns post
 
   //FUNCTIONS
 
@@ -54,22 +55,17 @@ const PostDetail = (props) => {
             <img src={image} alt="test img" />
           </div>
           <div className={classes.mainInfo}>
-            <h1>
-              {post.title}
-            </h1>
-              {canEdit && (
-                <div className='icons'>
-                  <span
-                    className={classes.icons}
-                    onClick={(e) => setEdit(true)}
-                  >
-                    <i class="edit far fa-edit"></i>
-                  </span>
-                  <span className={classes.icons} onClick={handleDelete}>
-                    <i class="fas fa-trash-alt"></i>
-                  </span>
-                </div>
-              )}
+            <h1>{post.title}</h1>
+            {canEdit && (
+              <div className="icons">
+                <span className={classes.icons} onClick={(e) => setEdit(true)}>
+                  <i class="edit far fa-edit"></i>
+                </span>
+                <span className={classes.icons} onClick={handleDelete}>
+                  <i class="fas fa-trash-alt"></i>
+                </span>
+              </div>
+            )}
             <div className={classes.author}>
               <h3>Author: {post.username}</h3>
               <h3>{new Date(post.createdAt).toDateString()}</h3>

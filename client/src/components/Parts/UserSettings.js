@@ -1,23 +1,35 @@
-import classes from "./UserSettings.module.css";
 import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../../context/Context";
 import axios from "axios";
-import { Paper, TextField, Button, Backdrop } from "@material-ui/core";
+
+import {
+  Paper,
+  TextField,
+  Button,
+  Backdrop,
+  ThemeProvider,
+} from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import { theme } from "../theme";
+import classes from "./UserSettings.module.css";
 
 const UserSettings = () => {
   const { user, dispatch } = useContext(Context);
-  let history = useHistory()
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState(null); // image name
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [checkDelete, setCheckDelete] = useState(false);
+
+  let history = useHistory(); // Router redirection
+
   const handleNameChange = (e) => {
     setUsername(e.target.value);
   };
+
   const handlePassChange = (e) => {
     setPassword(e.target.value);
   };
@@ -25,13 +37,14 @@ const UserSettings = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(`/user/${user._id}`, {
-        data: {userId: user._id}
+        data: { userId: user._id },
       });
-      
-      history.push("/");
-      dispatch({ type: "LOGOUT" });
+
+      history.push("/"); //redirect to homepage
+
+      dispatch({ type: "LOGOUT" }); // delete local storage user
     } catch (err) {
-      console.log(err);
+      setError("Problem with logging out");
     }
   };
 
@@ -45,7 +58,7 @@ const UserSettings = () => {
       userId: user._id,
     };
 
-    setError(null);
+    setError(null); //clear error
     setSuccess(null);
 
     e.preventDefault();
@@ -63,7 +76,9 @@ const UserSettings = () => {
 
         try {
           await axios.post("/upload", data);
-        } catch (e) {}
+        } catch (e) {
+          setError("Couldn't upload an img");
+        }
       } else if (password.trim()) {
         userUpdate.password = password;
       }
@@ -80,82 +95,87 @@ const UserSettings = () => {
 
   return (
     <div className={classes.container}>
-      <Paper elevation={3} classes={{ root: classes.paper }}>
-        <form onSubmit={handleSubmit} className={classes.form}>
-          <div className={classes.imgContainer}>
-            <img
-              src={
-                file ? URL.createObjectURL(file) : `/images/${user.profilePic}`
-              }
-              alt="post"
+      <ThemeProvider theme={theme}>
+        <Paper elevation={3} classes={{ root: classes.paper }}>
+          <form onSubmit={handleSubmit} className={classes.form}>
+            <div className={classes.imgContainer}>
+              <img
+                src={
+                  file
+                    ? URL.createObjectURL(file)
+                    : `/images/${user.profilePic}`
+                }
+                alt="post"
+              />
+            </div>
+            <label htmlFor="upload" className={classes.uploadIcon}>
+              <i className="fas fa-plus"></i>
+            </label>
+            <input
+              type="file"
+              id="upload"
+              onChange={(e) => setFile(e.target.files[0])}
             />
-          </div>
-          <label htmlFor="upload" className={classes.uploadIcon}>
-            <i className="fas fa-plus"></i>
-          </label>
-          <input
-            type="file"
-            id="upload"
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <TextField
-            id="standard-basic"
-            label="Username"
-            value={username}
-            margin="normal"
-            onChange={(e) => handleNameChange(e)}
-          />
-          <TextField
-            id="standard-basic"
-            label="New Password"
-            value={password}
-            margin="normal"
-            onChange={(e) => handlePassChange(e)}
-          />
-          <TextField
-            id="standard-basic"
-            label="Confirm New Password"
-            value={confirmPassword}
-            margin="normal"
-            onChange={(e) => handleConfirmPass(e)}
-          />
-          <Button type="submit" color="primary" variant="contained" className={classes.blueBtn}>
-            Save
-          </Button>
-          <br />
-          <Button
-            color="secondary"
-            variant="contained"
-            onClick={(e) => setCheckDelete(true)}
-            className={classes.redBtn}
-          >
-            Delete account
-          </Button>
-        </form>
-        {error && <p>{error}</p>}
-        {success && <p>{success}</p>}
-      </Paper>
-      <Backdrop open={checkDelete} className={classes.backdrop}>
-        <Paper elevation={3} className={classes.checkForm}>
-          <h1>Are you sure you want to delete your account?</h1>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={(e) => handleDelete()}
-            className={classes.blueBtn}
-          >
-            Yes
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={(e) => setCheckDelete(false)}
-            className={classes.redBtn}
-          >
-            No
-          </Button>
+            <TextField
+              id="standard-basic"
+              label="Username"
+              value={username}
+              margin="normal"
+              onChange={(e) => handleNameChange(e)}
+            />
+            <TextField
+              id="standard-basic"
+              label="New Password"
+              value={password}
+              margin="normal"
+              onChange={(e) => handlePassChange(e)}
+            />
+            <TextField
+              id="standard-basic"
+              label="Confirm New Password"
+              value={confirmPassword}
+              margin="normal"
+              onChange={(e) => handleConfirmPass(e)}
+            />
+            <Button type="submit" color="primary" variant="contained">
+              Save
+            </Button>
+            <br />
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={(e) => setCheckDelete(true)}
+            >
+              Delete account
+            </Button>
+          </form>
+          {error && (
+            <Alert severity="error">
+              <strong>{error}</strong>
+            </Alert>
+          )}
+          {success && <p>{success}</p>}
         </Paper>
-      </Backdrop>
+        <Backdrop open={checkDelete} className={classes.backdrop}>
+          <Paper elevation={3} className={classes.checkForm}>
+            <h1>Are you sure you want to delete your account?</h1>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={(e) => handleDelete()}
+            >
+              Yes
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={(e) => setCheckDelete(false)}
+            >
+              No
+            </Button>
+          </Paper>
+        </Backdrop>
+      </ThemeProvider>
     </div>
   );
 };

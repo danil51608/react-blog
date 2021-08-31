@@ -22,20 +22,6 @@
     width: 300px;
 }
 
-.backdrop{
-    z-index: 99 !important;
-}
-
-.submitButton{
-    margin-top: 20px;
-    background-color: #1D3557 !important;
-}
-
-.submitButton:disabled{
-    cursor: not-allowed;
-    background: #ccc;
-}
-
 @media (max-width: 424px){
     .login-form{
         padding: 10px;
