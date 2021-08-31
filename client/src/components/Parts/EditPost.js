@@ -1,5 +1,6 @@
 import classes from "./EditPost.module.css";
-import { Paper, TextField, Button, makeStyles } from "@material-ui/core";
+import { Paper, TextField, Button, makeStyles, CircularProgress } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { useState, useContext } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
@@ -16,8 +17,13 @@ const EditPost = (props) => {
   const styles = useStyles();
   const [title, setTitle] = useState(post.title);
   const [desc, setDesc] = useState(post.desc);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState('')
 
   const handleSave = async () => {
+    setIsFetching(true);
+    setError('')
+    
     try {
       await axios.put(`/post/${post._id}`, {
         title: title,
@@ -25,9 +31,11 @@ const EditPost = (props) => {
         userId: user._id,
       });
 
+      setIsFetching(false);
       setEdit(false); // edit mode off
     } catch (e) {
-      console.log("some error");
+      setIsFetching(false);
+      setError("Something went wrong!");
     }
   };
   return (
@@ -55,7 +63,7 @@ const EditPost = (props) => {
           onChange={(e) => setDesc(e.target.value)}
           fullWidth
         />
-        <Button
+        {!isFetching && <Button
           variant="contained"
           color="primary"
           type="submit"
@@ -63,7 +71,13 @@ const EditPost = (props) => {
           onClick={handleSave}
         >
           Save
-        </Button>
+        </Button>}
+        {isFetching && <CircularProgress color="primary" className={classes.loader}/>}
+        {error && (
+            <Alert severity="error">
+              <strong>{error}</strong>
+            </Alert>
+          )}
       </Paper>
     </div>
   );

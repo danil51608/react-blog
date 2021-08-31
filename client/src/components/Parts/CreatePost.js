@@ -3,9 +3,9 @@ import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../../context/Context";
 import axios from "axios";
-import { Paper, TextField, Button, ThemeProvider } from "@material-ui/core";
-import { theme } from "../theme";
+import { Paper, TextField, Button, ThemeProvider, CircularProgress } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { theme } from "../theme";
 
 const CreatePost = () => {
   // CONSTS AND STATES
@@ -14,13 +14,15 @@ const CreatePost = () => {
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
   const { user } = useContext(Context);
 
   //FUNCTIONS
 
   const handleSubmit = async (e) => {
-    setError(false); //clear error on every new request
     e.preventDefault();
+    setError(false); //clear error on every new request
+    setIsFetching(true)
 
     //create new instance of post
     const newPost = {
@@ -41,8 +43,10 @@ const CreatePost = () => {
       //upload img
       try {
         await axios.post("/upload", data);
+        setIsFetching(false)
       } catch (e) {
         setError(`Image upload has failed`);
+        setIsFetching(false)
       }
     }
 
@@ -50,8 +54,10 @@ const CreatePost = () => {
     try {
       await axios.post("/post", newPost);
       history.push("/"); //redirect to homepage
+      setIsFetching(false)
     } catch (e) {
       setError("Something went wrong! Try again later"); //show error
+      setIsFetching(false)
     }
   };
 
@@ -93,7 +99,7 @@ const CreatePost = () => {
               fullWidth
               onChange={(e) => setDesc(e.target.value)}
             />
-            <Button
+            {!isFetching && <Button
               variant="contained"
               color="primary"
               type="submit"
@@ -101,7 +107,8 @@ const CreatePost = () => {
               disabled={!title || !desc}
             >
               Create
-            </Button>
+            </Button>}
+            {isFetching && <CircularProgress color="primary" className={classes.loader}/>}
           </form>
           {error && (
             <Alert severity="error">
