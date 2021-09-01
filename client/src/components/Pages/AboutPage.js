@@ -36,6 +36,7 @@ const AboutPage = () => {
                 <li>React</li>
                 <li>MongoDB</li>
                 <li>MaterialUI</li>
+                <li>AWS S3</li>
               </ul>
               <br />
               Кроме вышеперечисленного, данный сайт является адаптивным. Можете
