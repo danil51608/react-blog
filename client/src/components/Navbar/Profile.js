@@ -63,7 +63,7 @@ const Profile = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
 
-  const imgPath = user.profilePic ? `/images/${user.profilePic}` : defaultImage;
+  const imgPath = user.profilePic ? `/upload/${user.profilePic}` : defaultImage;
 
   function handleClick(e) {
     e.stopPropagation();

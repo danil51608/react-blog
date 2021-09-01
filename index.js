@@ -5,13 +5,15 @@ const authRouter = require('./routes/auth')
 const userRouter = require('./routes/users')
 const postRouter = require('./routes/posts')
 const categoryRouter = require('./routes/categories')
+const uploadRouter = require('./routes/upload')
 const cors = require('cors')
 const path = require('path')
-const multer = require('multer')
+
 
 
 const app = express();
 app.use(cors());
+
 
 //setting a port
 const PORT = process.env.PORT || 5000;
@@ -27,23 +29,13 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(console.log('Connected to MongoDB')).catch(e => console.log(e))
 
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'images')
-    }, filename:(req, file, cb)=>{
-        cb(null, req.body.name)
-    }
-})
 
-const upload = multer({storage})
-app.post('/upload', upload.single('file'), (req, res)=>{
-    res.status(200).json('File has been uploaded!')
-})
 
 app.use('/auth', authRouter)
 app.use('/user', userRouter)
 app.use('/post', postRouter)
 app.use('/category', categoryRouter)
+app.use('/upload', uploadRouter)
 
 if(process.env.NODE_ENV === 'production'){
      app.use(express.static('client/build'))

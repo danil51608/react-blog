@@ -21,10 +21,3 @@
     justify-content: center;
   }
 }
-
-@media (max-width: 450px) {
-  .container {
-    padding: 5px;
-    justify-content: flex-start;
-  }
-}

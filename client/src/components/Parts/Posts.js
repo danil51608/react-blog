@@ -18,16 +18,16 @@ const Posts = () => {
       setIsFetching(false)
     }
     fetchPosts()
+
+
   }, [])
   
   return (
     <div className={classes.container}>
       {posts.map((post) => (
-        <PostCard post={post} key={post._id} />
+        <PostCard post={post} key={post._id} className={classes.post}/>
       ))}
-      
       {isFetching && <CircularProgress color="primary" className={classes.loader} />}
-
     </div>
   );
 };

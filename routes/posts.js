@@ -5,6 +5,7 @@ const fs = require('fs');
 // CREATE NEW POST
 router.post("/", async (req, res) => {
   const post = new Post(req.body);
+  console.log(req.body);
   try {
     const savedPost = await post.save();
     res.status(200).json(savedPost);
@@ -37,10 +38,6 @@ router.delete("/:id", async (req, res) => {
         if(post.username === req.body.username){
             try{
                 await post.delete();
-                fs.unlink(`images/${post.photo}`, (err)=>{
-                  if(err){throw err}
-                  else {console.log('Image deleted successfully')}
-                })
                 res.status(200).json('Post deleted successfully')
             } catch(e){
                 res.status(500).json(e)

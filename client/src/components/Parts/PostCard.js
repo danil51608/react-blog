@@ -17,7 +17,6 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     minWidth: 300,
-    marginRight: 10,
     marginTop: 20,
   },
   media: {
@@ -33,6 +32,7 @@ const useStyles = makeStyles({
   text: {
     fontFamily: "Open Sans",
     lineHeight: 1.5,
+    overflow: "hidden"
   },
 });
 
@@ -41,8 +41,7 @@ const PostCard = ({ post }) => {
   const { title, desc, _id: id, photo } = post;
   const classes = useStyles();
   let history = useHistory();
-  const storagePath = "https://danya-first-blog.herokuapp.com/images/";
-  const image = photo ? `${storagePath}${photo}` : RelaxImg;
+  const image = photo ? `/upload/${photo}` : RelaxImg;
 
   //FUNCTIONS
   function handleClick() {

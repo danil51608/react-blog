@@ -24,7 +24,7 @@ const PostDetail = () => {
   const styles = useStyles();  
                     
   const id = location.pathname.split("/")[2]; // get id from url
-  const storePath = "/images/";
+  const storePath = "/upload/";
   const image = post.photo ? `${storePath}${post.photo}` : defaultImg;
   const canEdit = user && user._id === post.userId; // check if user owns post
 
