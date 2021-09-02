@@ -6,13 +6,11 @@ const secretAccessKey = process.env.AWS_SECRET_KEY
 const bucketName = process.env.AWS_BUCKET_NAME
 const fs = require('fs')
 
-
 const s3 = new S3({
     region,
     accessKeyId,
     secretAccessKey
 })
-
 
 //upload file to aws
 function uploadFile(file) {
