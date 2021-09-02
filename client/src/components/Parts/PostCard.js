@@ -41,7 +41,7 @@ const PostCard = ({ post }) => {
   const { title, desc, _id: id, photo } = post;
   const classes = useStyles();
   let history = useHistory();
-  const image = photo ? `/upload/${photo}` : RelaxImg;
+  const image = photo ? `https://danya-react-blog.s3.eu-central-1.amazonaws.com/${photo}` : RelaxImg;
 
   //FUNCTIONS
   function handleClick() {

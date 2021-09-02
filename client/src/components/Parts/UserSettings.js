@@ -103,7 +103,7 @@ const UserSettings = () => {
                 src={
                   file
                     ? URL.createObjectURL(file)
-                    : `/images/${user.profilePic}`
+                    : `https://danya-react-blog.s3.eu-central-1.amazonaws.com/${user.profilePic}`
                 }
                 alt="post"
               />

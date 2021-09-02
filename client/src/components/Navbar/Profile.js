@@ -63,7 +63,7 @@ const Profile = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const divRef = useRef();
 
-  const imgPath = user.profilePic ? `/upload/${user.profilePic}` : defaultImage;
+  const imgPath = user.profilePic ? `https://danya-react-blog.s3.eu-central-1.amazonaws.com/${user.profilePic}` : defaultImage;
 
   function handleClick(e) {
     e.stopPropagation();
